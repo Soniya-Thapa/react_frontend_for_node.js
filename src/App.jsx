@@ -8,6 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* // HomePage Component lai routing ma import gareko : <HomePage/> */}
         <Route path="/" element={<HomePage/>}/>
         <Route path="/edit-page" element={<EditPage/>}/>
         <Route path="/create-page" element={<CreatePage/>}/>
