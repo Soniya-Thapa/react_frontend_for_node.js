@@ -1,0 +1,147 @@
+//1.
+//follow pascal case
+
+let platform :string = "digital pathshala"
+let numbers : number[]=[1,2,3,4,5]
+let names : string[]=["asd","fggh"]
+
+//paymentMethod ko value esewa yaa khalti matra huna payo
+// let paymentMethod: "Esewa" | "Khalti" = "Khalti" /valid/
+// paymentMethod = "Esewa" //valid
+// paymentMethod = "haha" //invalid
+
+//enum ley specific boundary create gardinxa
+enum PaymentMethod{
+    Esewa,
+    Khalti,
+    IME_pay
+}
+let paymentMethod : PaymentMethod= PaymentMethod.Esewa
+
+//2.
+//object 
+//obj lai type dina lai we use interface and 
+//interface ma first ma I rakhney to know that it is interface
+
+interface IInfo{
+    name : string,
+    age : number,
+    address : string,
+    code ?: number | string //? determine code is optional: code halda nih hunxa nahalda nih hunxa
+}
+let info : IInfo ={
+    name : "Soniya Thapa",
+    age : 21,
+    address : "Kaushaltar",
+    code  : 100,
+}
+
+//3.
+interface IEmployee extends IInfo{
+    role : "Developer" | "Programmer"
+}
+let employee : IEmployee= {
+    name : "hello",
+    age :22,
+    address : "bhkt",
+    role : "Developer",
+    code: 101
+}
+
+//4.
+interface IPersonalDetail{
+    name : string,
+    age : number
+}
+
+//alternate to interface 
+type TPersonalDetail = {
+    name : string,
+    age : number
+}
+let PersonalDetail:IPersonalDetail = {
+    name : "Soniya",
+    age : 22,
+}
+
+//5.
+//1. jasto lai hamley yesari pani lekna milxa, type Tname ma datatype store garera use garney
+type TName = string
+let fullname : TName = "Soniya Thapa"
+
+//6.
+type TRole = {
+    role :  "Developer"|"Programmer"
+}
+//mathi hami extend use garthim tara yeha hami & use garxam
+type TProfessionalDetail = TPersonalDetail & TRole
+let ProfessionalDetail : TProfessionalDetail = {
+    name : "Soniya",
+    age : 22,
+    role: "Developer"
+}
+
+//7.
+//                                  return type   : void bhaneko no return                                   
+function addNumbers(a:number,b:number):number{
+    console.log(a+b)
+    return  a+b //valid
+    //return "abc" //invalid cause yo function ko return type number xa 
+}
+// addNumbers(1,"1") //error // tara js ma valid hunxa 
+addNumbers(1,1)
+
+//8.
+function addStrings(a:string,b:string){
+    console.log(a+b)
+}
+addStrings("Soniya","Thapa")
+
+//9. GENERICS : it is used when you dont want to declare the datatype during passing arguments 
+//rather you declare datatype while calling function or passing function parameter
+//can be made dynamic in nature
+//farak tali function call garda farak datatype declare garna milyo
+//T : placeholder
+function addJPani<T>(a:T,b:T){
+    console.log("njornovw")
+}
+addJPani<number>(1,1)
+
+function addJPaniadvance<T,U>(a:T,b:U){
+    console.log("njovw")
+}
+addJPaniadvance<number,string>(1,"Soniya")
+
+//10.
+//ganerics in interface
+interface IData{
+    first : string,
+    second:number
+}
+let data : IData = {
+    first: "Soniya",
+    second : 21
+}
+
+interface IDataaa <T,U>{
+    first : T,
+    second:U
+}
+let dataaa : IDataaa <string, number> = {
+    first: "Soniya",
+    second : 21
+}
+let dataaa1 : IDataaa <number, string> = {
+    first: 10,
+    second : "soniya"
+}
+
+//11. class
+class Developer{
+    name : string
+    age : number
+    constructor(name:string,age:number){
+        this.name = name
+        this.age = age
+    }
+}
