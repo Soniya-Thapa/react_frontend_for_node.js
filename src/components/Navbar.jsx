@@ -1,7 +1,7 @@
-function Navbar(){
-  return(
+function Navbar() {
+  return (
     <>
-    <header className="bg-black"></header>
+      <header className="bg-black"></header>
     </>
   )
 }

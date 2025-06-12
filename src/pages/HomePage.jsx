@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom"
-import Button from "../components/Button"
+// import Button from "../components/Button"
 import Card from "../components/Card"
 import Navbar from "../components/Navbar"
-
+import axios from "axios"
+import { useEffect } from "react"
 function HomePage() {
+  //backend integration
+  const fetchBooks =async ()=>{
+    const response = await axios.get("http://localhost:3000/books")
+  }
+  //only call function when the page is reload 
+  useEffect(()=>{
+    fetchBooks()
+  },[])
   return (
     <>
       <div>
@@ -27,9 +36,9 @@ function HomePage() {
                 <div className="flex items-center gap-4">
                   <div className="sm:flex sm:gap-4">
                     <Link to="/create-page">
-                    <a className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow" href="#">
-                      + Create
-                    </a>
+                      <a className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow" href="#">
+                        + Create
+                      </a>
                     </Link>
                   </div>
                   <div className="block md:hidden">
@@ -61,6 +70,7 @@ function HomePage() {
         <Card />
         <Card />
       </div>
+
       {/* <button>login</button>
    <button>Register</button>
    <button>LogOut</button> */}

@@ -3,16 +3,16 @@ import Button from "../components/Button"
 import Card from "../components/Card"
 import Navbar from "../components/Navbar"
 
-function SinglePage(){
-  return(
+function SinglePage() {
+  return (
     <>
-    <h1>This is single page!!!</h1>
-    <Navbar/>
-    <Button title="Delete"/>
-    <Link to="/edit-page">
-    <Button title="Edit"/>
-    </Link>
-    <Card/>
+      <h1>This is single page!!!</h1>
+      <Navbar />
+      <Button title="Delete" />
+      <Link to="/edit-page">
+        <Button title="Edit" />
+      </Link>
+      <Card />
     </>
   )
 }
