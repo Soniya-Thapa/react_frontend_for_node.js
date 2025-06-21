@@ -6,13 +6,17 @@ import SinglePage from "./pages/SinglePage"
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}>
       <Routes>
         {/* // HomePage Component lai routing ma import gareko : <HomePage/> */}
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/edit-page" element={<EditPage/>}/>
-        <Route path="/create-page" element={<CreatePage/>}/>
-        <Route path="/single-page" element={<SinglePage/>}/>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/edit-page" element={<EditPage />} />
+        <Route path="/create-page" element={<CreatePage />} />
+        <Route path="/single-page" element={<SinglePage />} />
       </Routes>
     </BrowserRouter>
   )

@@ -3,20 +3,22 @@ import { Link } from "react-router-dom"
 import Card from "../components/Card"
 import Navbar from "../components/Navbar"
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+
 function HomePage() {
+  const [books, setBooks] = useState([])
   //backend integration
-  const fetchBooks =async ()=>{
+  const fetchBooks = async () => {
     const response = await axios.get("http://localhost:3000/books")
+    setBooks(response.data.datas)
   }
   //only call function when the page is reload 
-  useEffect(()=>{
+  useEffect(() => {
     fetchBooks()
-  },[])
+  }, [])
   return (
     <>
       <div>
-        {/* <h1 classname="text-blue-500">This is homepage!!!</h1> */}
         <header className="bg-white">
           <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
@@ -35,10 +37,9 @@ function HomePage() {
                 </nav>
                 <div className="flex items-center gap-4">
                   <div className="sm:flex sm:gap-4">
-                    <Link to="/create-page">
-                      <a className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow" href="#">
-                        + Create
-                      </a>
+                    <Link to="/create-page"
+                      className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow" href="#">
+                      + Create
                     </Link>
                   </div>
                   <div className="block md:hidden">
@@ -57,18 +58,16 @@ function HomePage() {
 
       <Navbar />
       <div className="flex flex-wrap">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {
+          //books bhanney statelai loop gariyo using map(higher order function) . 
+          // jahily pani map ko syntax : arraytoloop.map(function(arraykoeachitem){return()})  
+          // book ko thau ma j rakhda nih hunxa (dutiai case ma)
+          books.map(function (book) {
+            return (
+              <Card book={book} />
+            )
+          })
+        }
       </div>
 
       {/* <button>login</button>
