@@ -1,11 +1,11 @@
-import { Link, useParams } from "react-router-dom"
+import {Link,useNavigate, useParams } from "react-router-dom"
 import Button from "../components/Button"
-import Card from "../components/Card"
 import Navbar from "../components/Navbar"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
 function SinglePage() {
+  const navigate = useNavigate() //navigate hami euta page bata arko page ma jana ko lagi garxam , but yedi hami jsx ma garxam bhani Link use garney but yedi hami js ko code ma garxam bhani useNavigate() bata garni
   const {id} = useParams() //used to get parameters of the route. it can be only used when you have dynamic routing
   //id ma 2,3,4 basxa
   const [book,setBook] = useState({}) // {}:because the response is in object format
@@ -17,6 +17,16 @@ function SinglePage() {
   useEffect(()=>{
     fetchBook()
   },[])
+
+  const deleteBook = async()=>{
+    const response = await axios.delete("http://localhost:3000/books/"+id)
+    if(response.status == 200){
+      navigate("/")
+    }
+    else{
+      alert("something went wrong")
+    }
+  }
   return (
     <>
       <Navbar />
@@ -26,8 +36,9 @@ function SinglePage() {
       <h1>Author : {book.bookAuthor}</h1>
       <h1>Genre  : {book.bookGenre}</h1>
 
-      <Button title="Delete" />
-
+      <br/>
+      <Button title="Delete" onClick={deleteBook}/>
+      <br/><br/>
       <Link to="/edit-page">
         <Button title="Edit" />
       </Link>
