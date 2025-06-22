@@ -17,7 +17,7 @@ function App() {
         <Route path="/edit-page" element={<EditPage />} />
         <Route path="/create-page" element={<CreatePage />} />
         {/* //yo dynamic routing ho  */}
-        <Route path="/single-page/:id" element={<SinglePage />} /> 
+        <Route path="/single-page/:id" element={<SinglePage />} />
       </Routes>
     </BrowserRouter>
   )

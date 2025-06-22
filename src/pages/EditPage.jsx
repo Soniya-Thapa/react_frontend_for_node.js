@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar"
 function EditPage() {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <h1>This is Edit page!!!</h1>
     </>
   )

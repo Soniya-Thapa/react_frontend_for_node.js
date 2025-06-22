@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function Card({book}) { //book bhaneko arko page ko book = {book} bata aako(first) . yeha yo book bhaneko object ho so direct destructure gareko hamley {book} halera
+function Card({ book }) { //book bhaneko arko page ko book = {book} bata aako(first) . yeha yo book bhaneko object ho so direct destructure gareko hamley {book} halera
   return (
     <>
       <Link to={`/single-page/${book.id}`}>
