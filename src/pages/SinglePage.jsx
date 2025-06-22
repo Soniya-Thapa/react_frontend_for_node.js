@@ -6,13 +6,13 @@ import Navbar from "../components/Navbar"
 function SinglePage() {
   return (
     <>
-      <h1>This is single page!!!</h1>
       <Navbar />
+      <h1>This is single page!!!</h1>
       <Button title="Delete" />
       <Link to="/edit-page">
         <Button title="Edit" />
       </Link>
-      <Card />
+
     </>
   )
 }

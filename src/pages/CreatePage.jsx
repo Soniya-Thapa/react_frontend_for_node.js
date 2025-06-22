@@ -5,9 +5,8 @@ import Navbar from "../components/Navbar"
 function CreatePage() {
   return (
     <>
-      <h1>This is Create Page!!!!</h1>
       <Navbar />
-      <Card />
+      <h1>This is Create Page!!!!</h1>
       <Button title="Add Book" />
     </>
   )
