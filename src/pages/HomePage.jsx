@@ -6,7 +6,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 function HomePage() {
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState([]) // []:because the response is in array format
   //backend integration
   const fetchBooks = async () => {
     const response = await axios.get("http://localhost:3000/books")
