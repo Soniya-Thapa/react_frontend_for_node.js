@@ -16,6 +16,20 @@ function CreatePage() {
     bookAuthor: "",
     bookPrice: ""
   })
+  const handleChange = (event)=>{
+    // let value = event.target.value // k type haneko
+    // let name = event.target.name //k ma type haneko
+
+    //destructure
+    let {name,value} = event.target
+
+    //aaba hami bookName,... ma value set garxam 
+    setBookdata({
+      ...bookData, //spread operator
+      [name] : value
+    })
+  }
+  console.log(bookData)
   return (
     <>
       <Navbar />
@@ -35,19 +49,22 @@ function CreatePage() {
               <div className="grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-3">
                   <label htmlFor="product-name" className="text-sm font-medium text-gray-900 block mb-2">Book Name</label>
-                  <input onChange={(event) => setBookname(event.target.value)} type="text" name="product-name" id="product-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="C-programming”" required />
+                  <input 
+                  // onChange={(event) => setBookname(event.target.value)} 
+                  onChange = {handleChange}
+                  type="text" name="bookName" id="product-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="C-programming”" required />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
                   <label htmlFor="category" className="text-sm font-medium text-gray-900 block mb-2">Book Genre</label>
-                  <input onChange={(event) => setBookgenre(event.target.value)} type="text" name="category" id="category" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="IT" required />
+                  <input onChange = {handleChange} type="text" name="bookGenre" id="category" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="IT" required />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
                   <label htmlFor="brand" className="text-sm font-medium text-gray-900 block mb-2">Book Author</label>
-                  <input onChange={(event) => setBookauthor(event.target.value)} type="text" name="brand" id="brand" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Soniya Thapa" required />
+                  <input onChange = {handleChange} type="text" name="bookAuthor" id="brand" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Soniya Thapa" required />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
                   <label htmlFor="price" className="text-sm font-medium text-gray-900 block mb-2">Book Price</label>
-                  <input onChange={(event) => setBookprice(event.target.value)} type="number" name="price" id="price" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="$100" required />
+                  <input onChange = {handleChange} type="number" name="bookPrice" id="price" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="$100" required />
                 </div>
               </div>
             </form>
