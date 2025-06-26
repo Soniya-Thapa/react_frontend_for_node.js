@@ -14,7 +14,7 @@ function App() {
       <Routes>
         {/* // HomePage Component lai routing ma import gareko : <HomePage/> */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/edit-page" element={<EditPage />} />
+        <Route path="/edit-page/:id" element={<EditPage />} />
         <Route path="/create-page" element={<CreatePage />} />
         {/* //yo dynamic routing ho  */}
         <Route path="/single-page/:id" element={<SinglePage />} />

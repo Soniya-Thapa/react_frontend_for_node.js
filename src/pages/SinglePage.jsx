@@ -39,7 +39,7 @@ function SinglePage() {
       <br />
       <Button title="Delete" onClick={deleteBook} />
       <br /><br />
-      <Link to="/edit-page">
+      <Link to={`/edit-page/${book.id}`}>
         <Button title="Edit" />
       </Link>
 
