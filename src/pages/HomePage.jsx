@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 // import Button from "../components/Button"
 import Card from "../components/Card"
 import Navbar from "../components/Navbar"
@@ -19,14 +18,16 @@ function HomePage() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-wrap">
+      <div className="flex lex-wrap">
         {
           //books bhanney statelai loop gariyo using map(higher order function) . 
           // jahily pani map ko syntax : arraytoloop.map(function(arraykoeachitem){return()})  
           // book ko thau ma j rakhda nih hunxa (dutiai case ma)
           books.map(function (book) {
             return (
-              <Card book={book} />
+              <>
+                <Card book={book} />
+              </>
             )
           })
         }
